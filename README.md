@@ -12,6 +12,7 @@ This project will be written using the Laravel Framework to create a REST API an
 
 ## Learning Process
 ### Laravel Tutorial Options
+* [Medium.com REST API Larevel tutorial](https://medium.com/techvblogs/build-rest-api-with-laravel-879137ef8679)
 * [Getting Started with Laravel](https://laravel.com/docs/9.x#getting-started-on-macos)
 * [TDD REST API Tutorial](https://www.avyatech.com/build-laravel-rest-api-with-test-driven-development/#9-step-4-generate-the-keys-using)
 * [Docker REST API Tutorial](https://rapidapi.com/blog/how-to-create-an-api-in-php/)

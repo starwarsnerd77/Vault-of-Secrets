@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/passwords', "PasswordController@index"); // List Passwords
+Route::post('passwords', "PasswordController@store"); // Create Passwords
+Route::get('passwords/{id}', "PasswordController@show"); // Detail of Passwords
+Route::put('passwords/{id}', "PasswordController@update"); // Update Passwords
+Route::delete('passwords/{id}', "PasswordController@destroy"); //Delete Passwords
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
