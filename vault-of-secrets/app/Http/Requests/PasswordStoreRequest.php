@@ -41,7 +41,7 @@ class PasswordStoreRequest extends FormRequest
         return [
             'service.required' => 'Service is required!',
             'password.required' => 'Password is required!'
-        ]
+        ];
         // if(request()->isMethod('post')) {
         //     return [
         //         'name.required' => 'Name is required!',

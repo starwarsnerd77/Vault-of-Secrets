@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Password;
+use App\Http\Requests\PasswordStoreRequest;
 
 class PasswordController extends Controller
 {
