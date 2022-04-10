@@ -25,13 +25,11 @@ class PasswordStoreRequest extends FormRequest
     {
         if(request()->isMethod('post')) {
             return [
-                'service' => 'required|string|max:258',
-                'password' => 'required|string|max:256'
+                'service' => 'required|string|max:258'
             ];
         } else {
             return [
-                'service' => 'required|string|max:258',
-                'password' => 'required|string|max:256'
+                'service' => 'required|string|max:258'
             ];
         }
     }

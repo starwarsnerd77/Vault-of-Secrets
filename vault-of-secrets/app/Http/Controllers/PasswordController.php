@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\Password;
 use App\Http\Requests\PasswordStoreRequest;
 
@@ -41,11 +42,20 @@ class PasswordController extends Controller
      */
     public function store(PasswordStoreRequest $request)
     {
+        $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
+        $password = "";
+        for ($i = 0; $i < 20; $i+=1)
+        {
+            $password .= substr($letters, rand(0, strlen($letters)), 1);
+        }
+
+        $password = Crypt::encryptString($password);
+
         try {
             // Create Password
             Password::create([
                 'service' => $request->service,
-                'password' => $request->password
+                'password' => $password
             ]);
             // Return Json Response
             return response()->json([
@@ -74,7 +84,7 @@ class PasswordController extends Controller
                 'message'=>'Password Not Found.'
             ],404);
         }
-        // Return Json Response
+        $password->password = Crypt::decrypt($password->password, false);
         return response()->json([
             'password' => $password
         ],200);
@@ -100,29 +110,29 @@ class PasswordController extends Controller
      */
     public function update(PasswordStoreRequest $request, $id)
     {
-        try {
-            // Find Password
-            $password = Password::find($id);
-            if(!$password){
-              return response()->json([
-                'message'=>'Password Not Found.'
-              ],404);
-            }
-            $password->service = $request->service;
-            $password->password = $request->password;
+        // try {
+        //     // Find Password
+        //     $password = Password::find($id);
+        //     if(!$password){
+        //       return response()->json([
+        //         'message'=>'Password Not Found.'
+        //       ],404);
+        //     }
+        //     $password->service = $request->service;
+        //     $password->password = $request->password;
 
-            // Update Post
-            $password->save();
-            // Return Json Response
-            return response()->json([
-                'message' => "Password successfully updated."
-            ],200);
-        } catch (\Exception $e) {
-            // Return Json Response
-            return response()->json([
-                'message' => "Something went really wrong!"
-            ],500);
-        }
+        //     // Update Post
+        //     $password->save();
+        //     // Return Json Response
+        //     return response()->json([
+        //         'message' => "Password successfully updated."
+        //     ],200);
+        // } catch (\Exception $e) {
+        //     // Return Json Response
+        //     return response()->json([
+        //         'message' => "Something went really wrong!"
+        //     ],500);
+        // }
     }
 
     /**

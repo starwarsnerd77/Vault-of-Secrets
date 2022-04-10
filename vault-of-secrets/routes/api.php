@@ -16,10 +16,10 @@ use App\Http\Controllers\PasswordController;
 */
 // Route::resource('password', 'PasswordController');
 Route::get('/passwords', "App\Http\Controllers\PasswordController@index"); // List Passwords
-Route::post('passwords', "App\Http\Controllers\PasswordController@store"); // Create Passwords
-Route::get('passwords/{id}', "App\Http\Controllers\PasswordController@show"); // Detail of Passwords
-Route::put('passwords/{id}', "App\Http\Controllers\PasswordController@update"); // Update Passwords
-Route::delete('passwords/{id}', "App\Http\Controllers\PasswordController@destroy"); //Delete Passwords
+Route::post('/passwords', "App\Http\Controllers\PasswordController@store"); // Create Passwords
+Route::get('/passwords/{id}', "App\Http\Controllers\PasswordController@show"); // Detail of Passwords
+// Route::put('passwords/{id}', "App\Http\Controllers\PasswordController@update"); // Update Passwords
+Route::delete('/passwords/{id}', "App\Http\Controllers\PasswordController@destroy"); //Delete Passwords
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
