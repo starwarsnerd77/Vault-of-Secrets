@@ -3,7 +3,7 @@
 A password manager app.
 
 ## General Info
-This project will be written using the Laravel Framework to create a REST API and PostgreSQL for the backend. The app will use 256-bit AES to encrypt the saved passwords.
+This project will be written using the Laravel Framework to create a REST API and PostgreSQL for the backend. The app will use Laravel's built-in AES-256 to encrypt the saved passwords.
 
 ## Toolstack
 * [Laravel](https://laravel.com/)
