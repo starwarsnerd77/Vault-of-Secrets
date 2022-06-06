@@ -57,10 +57,19 @@ class PasswordController extends Controller
                 'service' => $request->service,
                 'password' => $password
             ]);
+
+            // $user = User::find(1);
+
+            // $user->passwords()->create([
+            //     'service' => $request->service,
+            //     'password' => $password
+            // ]);
+
             // Return Json Response
             return response()->json([
                 'message' => "Password successfully created."
             ],200);
+
         } catch (\Exception $e) {
             // Return Json Response
             return response()->json([
